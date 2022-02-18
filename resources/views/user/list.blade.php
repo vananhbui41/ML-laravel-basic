@@ -1,1 +1,11 @@
-<h1 style="text-align: center">This is users list</h1>
+{{-- <!-- Stored in resources/views/users/list.blade.php --> --}}
+@extends('layouts.app')
+@section('title', 'Page Title')
+@section('sidebar')
+    @parent
+    <p>This is appended to the master sidebar.</p>
+@endsection
+@section('content')
+    <p>Im a {{ $user ?? '' }}.</p>
+ <p>This is my body content.</p>
+@endsection
