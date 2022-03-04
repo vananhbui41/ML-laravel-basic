@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users',function () {
-    return view('user/list');
-});
+// Route::resource('users',function(){
+//     return view('users.list');
+// });
+Route::resource('users', \App\Http\Controllers\UserController::class);
+
+// Route::resource('categories', \App\Http\Controllers\CategoryController::class)->only(['index']);
+
+// Route::get('items',\App\Http\Livewire\Item::class);
+
+// // Route::get('categories',\App\Http\Livewire\Category\Index::class);

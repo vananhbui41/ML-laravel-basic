@@ -7,38 +7,43 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Hash;
+
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+
+    protected $perPage = 20;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+
+    protected $guarded = [];
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
+     * Store info users to database
+     * 
+     * @param object $request 
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    public function createUser($request)
+    {
+        $input = $request->except('password_confirmation');
+        $input['password'] = Hash::make($input['password']);
+        User::create($input);
+    }
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+     * Get list users
+     * 
+     * @return Illuminate\Pagination\Paginator
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function getUsers()
+    {
+        return User::orderBy('email')->paginate();
+    }
 }
