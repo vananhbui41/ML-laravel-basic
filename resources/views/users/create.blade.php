@@ -37,28 +37,28 @@
 			  @enderror
 		  </div>
 		  <div class="form-group">
-			  <label @error('password') class="message" @enderror>password</label>
+			  <label @error('password') class="message" @enderror>Password</label>
 			  <input type="password" class="form-control @error('password') check @enderror" name="password">
 			  @error('password')
 				  <span class="message">{{ $message }}</span>
 			  @enderror
 		  </div>
 		  <div class="form-group">
-			  <label @error('password_confirmation') class="message" @enderror>password_confirmation</label>
+			  <label @error('password_confirmation') class="message" @enderror>Confirm Password</label>
 			  <input type="password" class="form-control @error('password_confirmation') check @enderror" name="password_confirmation">
 			  @error('password_confirmation')
 				  <span class="message">{{ $message }}</span>
 			  @enderror
 		  </div>
 		  <div class="form-group">
-			  <label @error('address') class="message" @enderror>address</label>
+			  <label @error('address') class="message" @enderror>Address</label>
 			  <input type="text" class="form-control @error('address') check @enderror" name="address"  value="{{ old('address') }}">
 			  @error('address')
 				  <span class="message">{{ $message }}</span>
 			  @enderror
 		  </div>
 		  <div class="form-group">
-			  <label @error('phone') class="message" @enderror>phone</label>
+			  <label @error('phone') class="message" @enderror>Phone Number</label>
 			  <input type="text" class="form-control @error('phone') check @enderror" name="phone"  value="{{ old('phone') }}">
 			  @error('phone')
 				  <span class="message">{{ $message }}</span>

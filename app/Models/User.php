@@ -44,6 +44,6 @@ class User extends Authenticatable
      */
     public function getUsers()
     {
-        return User::orderBy('email')->paginate();
+        return User::orderBy('created_at', 'DESC')->paginate();
     }
 }

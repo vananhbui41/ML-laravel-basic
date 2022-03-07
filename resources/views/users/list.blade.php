@@ -3,7 +3,7 @@
 @section('content')
 <h1>{{ $notify }}</h1>
 <div class="container" style="margin-top:60px;">
-    <a class="btn btn-primary" href="{{ route('users.create') }}" role="button" style="margin-bottom:15px;">Thêm mới</a>
+    <a class="btn btn-primary" href="{{ route('users.create') }}" role="button" style="margin-bottom:15px;">Thêm user mới</a>
     <div class="row">
         <div class="col-md-12">
             <table class="table table-bordered">
